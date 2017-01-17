@@ -1,0 +1,22 @@
+<div class="col-md-12">
+  <h3>{{ repositoryInfo.provider }} / {{ repositoryInfo.orga }} / {{ repositoryInfo.name }}
+    <lock [privateRepo]="repositoryInfo?.privateRepo"></lock>
+    <repolink [repositoryInfo]="repositoryInfo"></repolink>
+  </h3>
+  <button *ngIf="isEnabled()"
+          type="button"
+          class='btn btn-success'
+          (click)="isEnabled() && disableRepository()"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Repository is enabled. Click to disable.">ON
+  </button>
+  <button *ngIf="!isEnabled()"
+          type="button"
+          class='btn btn-default'
+          (click)="!isEnabled() && enableRepository()"
+          data-toggle="tooltip"
+          data-placement="right"
+          title="Repository is not enabled. Click to enable.">OFF
+  </button>
+</div>
