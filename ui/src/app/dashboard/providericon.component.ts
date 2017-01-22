@@ -1,5 +1,5 @@
 import {Component, Input, Output} from "@angular/core";
-import {LatestBuild} from "./dashboard.service";
+import {LatestBuild} from "./models";
 
 @Component({
   selector: 'provider-icon',

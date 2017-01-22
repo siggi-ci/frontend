@@ -1,14 +1,22 @@
 import {Injectable} from "@angular/core";
 import {Http, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs";
+import {LatestBuild} from "./models";
 
 @Injectable()
 export class DashboardService {
 
     private baseUrl: string = '/ui';
-  //private baseUrl: string = '/assets/mock-data/ui';
 
   constructor(public http: Http){
+  }
+
+  getLatestBuilds() {
+    let latestBuilds = this.http.get(`${this.baseUrl}/dashboard/latest`, {headers: this.getHeaders()})
+      .map(response => {
+        return response.json();
+      });
+    return latestBuilds;
   }
 
   private getHeaders() {
@@ -34,10 +42,3 @@ function toLatestBuild(r:any): LatestBuild {
   return latestBuild;
 }
 
-export class LatestBuild {
-  constructor(
-    public provider: string,
-    public orga: string,
-    public repo: string
-  ){}
-}

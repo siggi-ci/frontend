@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { RepositoryInfo } from './model';
 import {RepositoriesService} from "./repositories.service";
-import {RepoLink} from "./repoLink/repolink.component";
 
 
 @Component({

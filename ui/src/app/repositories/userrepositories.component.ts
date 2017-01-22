@@ -9,6 +9,10 @@ import {RepositoryInfo} from "./model";
   template:`
     <div id="container">
       <h3>UserRepositories</h3>
+      <section *ngIf="isLoading && !errorMessage">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+      </section>
       <div class="row" *ngFor="let ri of repositoryInfos; let i = index">
         <hr>
         <repositoryEnabler [repositoryInfo]="ri" [index]="i" [provider]="repoProvider"></repositoryEnabler>
@@ -21,6 +25,9 @@ export class UserRepositoriesCmp {
   repositoryInfos: RepositoryInfo[];
   private repoProvider: string;
 
+  errorMessage: string = '';
+  isLoading: boolean = true;
+
   constructor(private route: ActivatedRoute,private _service: RepositoriesService){
   }
 
@@ -30,10 +37,18 @@ export class UserRepositoriesCmp {
     this.loadCurrentUserRepositories();
   }
 
-  loadCurrentUserRepositories(){
+  loadCurrentUserRepositories() {
+    console.log("load userrepositories");
+    console.log("show-spinner : ", (this.isLoading && !this.errorMessage))
     console.log('Load all user-repositories for provider ', this.repoProvider);
     this._service.getRepoInfo(this.repoProvider).subscribe(ri => {
       this.repositoryInfos = ri;
+    },
+    err => console.log(err),
+    () => {
+      this.isLoading = false;
+      console.log("userrepositories loaded")
+      console.log("show-spinner : ", (this.isLoading && !this.errorMessage));
     });
   }
 }

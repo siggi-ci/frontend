@@ -5,16 +5,15 @@ import { HttpModule } from '@angular/http';
 
 import {Routing} from './app.routing';
 import { AppComponent } from './app.component';
-import {NoContent} from "./no-content/no-content";
 import {ScmProvidersModule} from "./scmproviders/scmproivders.module";
 import {DashboardModule} from "./dashboard/dashboard.module";
 import {RepositoriesModule} from "./repositories/repositories.module";
+import {NoContentModule} from "./no-content/no-content.module";
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    NoContent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +22,8 @@ import {RepositoriesModule} from "./repositories/repositories.module";
     Routing,
     ScmProvidersModule,
     DashboardModule,
-    RepositoriesModule
+    RepositoriesModule,
+    NoContentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

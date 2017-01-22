@@ -13,16 +13,16 @@ import {ScmProvider} from "./model";
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <!-- <my-spinner [isRunning]=true [delay]="0"></my-spinner>-->
-        <h3>Choose an SCM-Providers below</h3>
+        <h3 class="text-center">Choose an SCM-Provider below</h3>
         <section *ngIf="isLoading && !errorMessage">
-            Loading our hyperdrives!!! Retrieving data...
-            <!-- <my-spinner [isRunning]="isLoading" [delay]="20"></my-spinner>-->
+          <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+          <span class="sr-only">Loading...</span>
         </section>
         <table class="table table-hover">
           <tbody>
           <tr *ngFor="let provider of scmProviders">
             <td>
-              <a class="btn btn-primary btn-lg" role="button" href="{{provider.connectUrl}}">{{provider.name}}</a>
+              <a class="btn btn-primary btn-block btn-lg" role="button" href="{{provider.connectUrl}}">{{provider.name}}</a>
             </td>
           </tr>
           </tbody>
@@ -37,8 +37,10 @@ import {ScmProvider} from "./model";
 export class ScmProvidersCmp implements OnInit{
 
   scmProviders: ScmProvider[];
+
   errorMessage: string = '';
   isLoading: boolean = true;
+
   constructor(private _scmProviderService: ScmProviderService, private _router: Router){
   }
 

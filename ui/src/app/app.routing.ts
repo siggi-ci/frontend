@@ -1,5 +1,5 @@
 import {RouterModule, Routes} from "@angular/router";
-import {NoContent} from "./no-content/no-content";
+import {NoContent} from "./no-content/no-content.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard'  },
