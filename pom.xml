@@ -1,7 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.siggi-ci</groupId>
+    <parent>
+        <groupId>org.siggi-ci</groupId>
+        <artifactId>siggi-ci-parent</artifactId>
+        <version>3</version>
+        <relativePath />
+    </parent>
     <artifactId>frontend</artifactId>
     <version>0.0.6-SNAPSHOT</version>
 
@@ -53,33 +58,24 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <descriptors>
-                        <descriptor>src/assembly/distribution.xml</descriptor>
-                    </descriptors>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>package-zip</id>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
             <id>prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <ng-build-arg>--prod</ng-build-arg>
             </properties>
         </profile>
     </profiles>
+
+    <scm>
+        <url>https://github.com/siggi-ci/frontend</url>
+        <connection>scm:git:https://github.com/siggi-ci/frontend.git</connection>
+        <developerConnection>scm:git:https://github.com/siggi-ci/frontend.git</developerConnection>
+  </scm>
 </project>
