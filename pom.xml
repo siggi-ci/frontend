@@ -7,7 +7,7 @@
         <relativePath />
     </parent>
     <artifactId>frontend</artifactId>
-    <version>0.0.7</version>
+    <version>0.0.8-SNAPSHOT</version>
 
     <properties>
         <ng-build-arg>--dev</ng-build-arg>
@@ -105,6 +105,6 @@
         <url>https://github.com/siggi-ci/frontend</url>
         <connection>scm:git:https://github.com/siggi-ci/frontend.git</connection>
         <developerConnection>scm:git:https://github.com/siggi-ci/frontend.git</developerConnection>
-    <tag>frontend-0.0.7</tag>
+    <tag>HEAD</tag>
   </scm>
 </project>
