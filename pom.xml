@@ -96,7 +96,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <ng-build-arg>--prod</ng-build-arg>
+                <ng-build-arg>--production</ng-build-arg>
             </properties>
         </profile>
     </profiles>

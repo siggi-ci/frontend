@@ -1,12 +1,11 @@
 import {Injectable} from "@angular/core";
 import {Http, Response, Headers} from "@angular/http";
-import {Observable} from "rxjs";
 import {LatestBuild} from "./models";
 
 @Injectable()
 export class DashboardService {
 
-    private baseUrl: string = '/ui';
+  private baseUrl: string = '/ui';
 
   constructor(public http: Http){
   }
