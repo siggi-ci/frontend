@@ -9,6 +9,7 @@ import {ScmProvidersModule} from "./scmproviders/scmproivders.module";
 import {DashboardModule} from "./dashboard/dashboard.module";
 import {RepositoriesModule} from "./repositories/repositories.module";
 import {NoContentModule} from "./no-content/no-content.module";
+import {BuildsModule} from "./builds/builds.module";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {NoContentModule} from "./no-content/no-content.module";
     ScmProvidersModule,
     DashboardModule,
     RepositoriesModule,
-    NoContentModule
+    NoContentModule,
+    BuildsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

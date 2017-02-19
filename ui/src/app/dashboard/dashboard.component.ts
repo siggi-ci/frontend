@@ -9,25 +9,26 @@ import {BuildItem} from "./builditem/builditem.component";
   template: `
     <navbar></navbar>
     <div>
-    <section *ngIf="isLoading && !errorMessage">
-      <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-      <span class="sr-only">Loading...</span>
-    </section>
-    <div *ngFor="let repository of lastBuilds; let i = index" class="bd-callout bd-callout-success">
-        <div class="row">
-         <div class="col-md-5">
-            <h4><!--<provider-icon [latestBuild]="build"></provider-icon> -->
-            <a class="nav-link" [routerLink]=" ['/builds', repository.provider, repository.orga, repository.repo]">{{repository.provider}} / {{repository.orga}} / {{repository.repo}}</a></h4>
-         </div>
-         <div class="col-md-4">
-          <a *ngFor="let build of repository?.builds; let idx = index" [routerLink]=" ['/builds', repository.provider, repository.orga, repository.repo, build.buildnumber]">
-            <builditem [status]="build.state"></builditem>
-          </a>
-         </div>
-         <div class="col-md-3">
-            last commit-id
-         </div>
-        </div>
+      <section *ngIf="isLoading && !errorMessage">
+        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+      </section>
+      <div *ngFor="let repository of lastBuilds; let i = index" class="bd-callout bd-callout-success">
+          <div class="row">
+           <div class="col-md-5">
+              <h4><!--<provider-icon [latestBuild]="build"></provider-icon> -->
+              <a class="nav-link" [routerLink]=" ['/builds', repository.provider, repository.orga, repository.repo]">{{repository.provider}} / {{repository.orga}} / {{repository.repo}}</a></h4>
+           </div>
+           <div class="col-md-4">
+            <a *ngFor="let build of repository?.builds; let idx = index" [routerLink]=" ['/builds', repository.provider, repository.orga, repository.repo, 'build', build.buildnumber]">
+              <builditem [status]="build.state"></builditem>
+            </a>
+           </div>
+           <div class="col-md-3">
+              last commit-id
+           </div>
+          </div>
+      </div>
     </div>
   `
 })

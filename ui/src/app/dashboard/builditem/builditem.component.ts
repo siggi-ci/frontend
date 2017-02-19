@@ -14,15 +14,17 @@ export class BuildItem {
   constructor(){}
 
   getColor() {
-    if(this.status === "success") {
+    if(this.status.toLowerCase() === "success") {
       return "green";
-    }else if (this.status === "failure") {
+    }else if (this.status.toLowerCase() === "failure") {
       return "red";
     }
   }
 
   isRunning() {
-    if(this.status === "running"){
+    if(this.status.toLowerCase() === "running") {
+      return true;
+    }else if (this.status.toLowerCase() === "created") {
       return true;
     }else{
       return false;
